@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA & Algorithms Cheatsheet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .code-block {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* A simple, manual syntax highlighting scheme */
+        .code-keyword { color: #81A1C1; } /* Blue for keywords */
+        .code-function { color: #88C0D0; } /* Cyan for functions */
+        .code-string { color: #A3BE8C; } /* Green for strings */
+        .code-comment { color: #616E88; } /* Gray for comments */
+        .code-number { color: #B48EAD; } /* Purple for numbers */
+        .code-variable { color: #D8DEE9; } /* Light gray for variables */
+        .card-border-blue { border-top: 4px solid #5E81AC; }
+        .card-border-cyan { border-top: 4px solid #88C0D0; }
+        .card-border-green { border-top: 4px solid #A3BE8C; }
+        .card-border-purple { border-top: 4px solid #B48EAD; }
+        .card-border-red { border-top: 4px solid #BF616A; }
+        .card-border-orange { border-top: 4px solid #D08770; }
+        .card-border-yellow { border-top: 4px solid #EBCB8B; }
+        .card-border-pink { border-top: 4px solid #b48eadc7; }
+        .card-border-teal { border-top: 4px solid #5eac9f; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300 अंतialiased">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">DSA & Algorithms Cheatsheet</h1>
+            <p class="text-slate-400 mt-2">Your one-page guide for cracking the tech interview.</p>
+        </div>
+
+        <!-- Grid for DSA Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+            <!-- 1. Arrays & Strings -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-blue">
+                <h2 class="text-xl font-bold text-white mb-3">Arrays & Strings</h2>
+                <h3 class="font-semibold text-blue-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3">Stores elements in contiguous memory blocks. O(1) access with index. Strings are immutable arrays of characters.</p>
+                <h3 class="font-semibold text-blue-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li>Storing collections of items.</li>
+                    <li>Sliding Window, Two Pointers patterns.</li>
+                    <li>Implementing other data structures.</li>
+                </ul>
+                <h3 class="font-semibold text-blue-400 mb-2">Python Snippet: Two Pointers</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-keyword">def</span> <span class="code-function">find_pair</span>(<span class="code-variable">arr</span>, <span class="code-variable">target</span>):
+    <span class="code-variable">left</span>, <span class="code-variable">right</span> = <span class="code-number">0</span>, <span class="code-function">len</span>(<span class="code-variable">arr</span>) - <span class="code-number">1</span>
+    <span class="code-keyword">while</span> <span class="code-variable">left</span> < <span class="code-variable">right</span>:
+        <span class="code-variable">current_sum</span> = <span class="code-variable">arr</span>[<span class="code-variable">left</span>] + <span class="code-variable">arr</span>[<span class="code-variable">right</span>]
+        <span class="code-keyword">if</span> <span class="code-variable">current_sum</span> == <span class="code-variable">target</span>:
+            <span class="code-keyword">return</span> (<span class="code-variable">left</span>, <span class="code-variable">right</span>)
+        <span class="code-keyword">elif</span> <span class="code-variable">current_sum</span> < <span class="code-variable">target</span>:
+            <span class="code-variable">left</span> += <span class="code-number">1</span>
+        <span class="code-keyword">else</span>:
+            <span class="code-variable">right</span> -= <span class="code-number">1</span>
+    <span class="code-keyword">return</span> <span class="code-keyword">None</span></code></pre>
+            </div>
+
+            <!-- 2. Hash Tables & Sets -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-cyan">
+                <h2 class="text-xl font-bold text-white mb-3">Hash Tables & Sets</h2>
+                <h3 class="font-semibold text-cyan-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3">Key-value pairs (or just keys for sets) stored based on a hash function. Provides O(1) average time complexity for insert, delete, and search.</p>
+                <h3 class="font-semibold text-cyan-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li>Caching (e.g., memoization).</li>
+                    <li>Counting frequencies of items.</li>
+                    <li>Detecting duplicates or finding intersections.</li>
+                </ul>
+                <h3 class="font-semibold text-cyan-400 mb-2">Python Snippet: Frequency Count</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-keyword">from</span> <span class="code-variable">collections</span> <span class="code-keyword">import</span> <span class="code-variable">Counter</span>
+<span class="code-comment"># In Python, dictionaries are hash tables</span>
+<span class="code-variable">my_list</span> = [<span class="code-string">'a'</span>, <span class="code-string">'b'</span>, <span class="code-string">'a'</span>, <span class="code-string">'c'</span>, <span class="code-string">'b'</span>, <span class="code-string">'a'</span>]
+<span class="code-variable">freq_map</span> = {}
+<span class="code-keyword">for</span> <span class="code-variable">item</span> <span class="code-keyword">in</span> <span class="code-variable">my_list</span>:
+    <span class="code-variable">freq_map</span>[<span class="code-variable">item</span>] = <span class="code-variable">freq_map</span>.<span class="code-function">get</span>(<span class="code-variable">item</span>, <span class="code-number">0</span>) + <span class="code-number">1</span>
+
+<span class="code-comment"># Or simply use Counter</span>
+<span class="code-variable">freq_counter</span> = <span class="code-function">Counter</span>(<span class="code-variable">my_list</span>)
+<span class="code-comment"># freq_counter is {'a': 3, 'b': 2, 'c': 1}</span>
+</code></pre>
+            </div>
+
+            <!-- 3. Stacks & Queues -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-green">
+                <h2 class="text-xl font-bold text-white mb-3">Stacks & Queues</h2>
+                <h3 class="font-semibold text-green-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3"><strong>Stack (LIFO):</strong> Last-In, First-Out. Operations are push and pop. <strong>Queue (FIFO):</strong> First-In, First-Out. Operations are enqueue and dequeue.</p>
+                <h3 class="font-semibold text-green-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li><strong>Stack:</strong> DFS, parentheses validation, call stack.</li>
+                    <li><strong>Queue:</strong> BFS, task scheduling, message processing.</li>
+                </ul>
+                <h3 class="font-semibold text-green-400 mb-2">Python Snippet: Queue with deque</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-keyword">from</span> <span class="code-variable">collections</span> <span class="code-keyword">import</span> <span class="code-variable">deque</span>
+
+<span class="code-variable">queue</span> = <span class="code-function">deque</span>()
+
+<span class="code-comment"># Enqueue</span>
+<span class="code-variable">queue</span>.<span class="code-function">append</span>(<span class="code-string">'Task 1'</span>)
+<span class="code-variable">queue</span>.<span class="code-function">append</span>(<span class="code-string">'Task 2'</span>)
+
+<span class="code-comment"># Dequeue</span>
+<span class="code-variable">processed_task</span> = <span class="code-variable">queue</span>.<span class="code-function">popleft</span>() <span class="code-comment"># 'Task 1'</span>
+
+<span class="code-comment"># Python lists can be used as a stack</span>
+<span class="code-variable">stack</span> = []
+<span class="code-variable">stack</span>.<span class="code-function">append</span>(<span class="code-number">1</span>) <span class="code-comment"># Push</span>
+<span class="code-variable">stack</span>.<span class="code-function">pop</span>()     <span class="code-comment"># Pop</span>
+</code></pre>
+            </div>
+            
+            <!-- 4. Recursion & Backtracking -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-purple">
+                <h2 class="text-xl font-bold text-white mb-3">Recursion & Backtracking</h2>
+                <h3 class="font-semibold text-purple-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3">A function that calls itself to solve smaller instances of the same problem. Backtracking explores all potential solutions, abandoning a path if it's invalid.</p>
+                <h3 class="font-semibold text-purple-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li>Tree and graph traversals (DFS).</li>
+                    <li>Generating permutations/combinations.</li>
+                    <li>Solving mazes, Sudoku, N-Queens.</li>
+                </ul>
+                <h3 class="font-semibold text-purple-400 mb-2">Python Snippet: Backtracking Template</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-keyword">def</span> <span class="code-function">backtrack</span>(<span class="code-variable">candidate</span>, <span class="code-variable">input_data</span>):
+    <span class="code-keyword">if</span> <span class="code-function">is_solution</span>(<span class="code-variable">candidate</span>):
+        <span class="code-function">add_to_results</span>(<span class="code-variable">candidate</span>)
+        <span class="code-keyword">return</span>
+
+    <span class="code-keyword">for</span> <span class="code-variable">next_candidate</span> <span class="code-keyword">in</span> <span class="code-function">generate_candidates</span>(<span class="code-variable">candidate</span>):
+        <span class="code-comment"># Choose</span>
+        <span class="code-function">add_to_candidate</span>(<span class="code-variable">next_candidate</span>)
+        <span class="code-comment"># Explore</span>
+        <span class="code-function">backtrack</span>(<span class="code-variable">candidate</span>, <span class="code-variable">input_data</span>)
+        <span class="code-comment"># Unchoose (backtrack)</span>
+        <span class="code-function">remove_from_candidate</span>(<span class="code-variable">next_candidate</span>)
+</code></pre>
+            </div>
+            
+            <!-- 5. Trees (Binary Tree & BST) -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-red">
+                <h2 class="text-xl font-bold text-white mb-3">Trees (BT & BST)</h2>
+                <h3 class="font-semibold text-red-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3">Hierarchical data structure with a root node and child nodes. A Binary Search Tree (BST) is ordered: left child < parent < right child, enabling O(log n) search.</p>
+                <h3 class="font-semibold text-red-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li>Representing hierarchy (file systems, DOM).</li>
+                    <li>BSTs for efficient searching and sorting.</li>
+                    <li>Tries for autocompletion.</li>
+                </ul>
+                <h3 class="font-semibold text-red-400 mb-2">Python Snippet: In-order Traversal</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-keyword">class</span> <span class="code-function">TreeNode</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-variable">self</span>, <span class="code-variable">val</span>=<span class="code-number">0</span>, <span class="code-variable">left</span>=<span class="code-keyword">None</span>, <span class="code-variable">right</span>=<span class="code-keyword">None</span>):
+        <span class="code-variable">self</span>.<span class="code-variable">val</span> = <span class="code-variable">val</span>
+        <span class="code-variable">self</span>.<span class="code-variable">left</span> = <span class="code-variable">left</span>
+        <span class="code-variable">self</span>.<span class="code-variable">right</span> = <span class="code-variable">right</span>
+
+<span class="code-keyword">def</span> <span class="code-function">in_order_traversal</span>(<span class="code-variable">node</span>):
+    <span class="code-keyword">if</span> <span class="code-keyword">not</span> <span class="code-variable">node</span>:
+        <span class="code-keyword">return</span>
+    <span class="code-function">in_order_traversal</span>(<span class="code-variable">node</span>.<span class="code-variable">left</span>)
+    <span class="code-function">print</span>(<span class="code-variable">node</span>.<span class="code-variable">val</span>) <span class="code-comment"># Visit node</span>
+    <span class="code-function">in_order_traversal</span>(<span class="code-variable">node</span>.<span class="code-variable">right</span>)
+</code></pre>
+            </div>
+            
+            <!-- 6. Heaps / Priority Queue -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-orange">
+                <h2 class="text-xl font-bold text-white mb-3">Heaps / Priority Queue</h2>
+                <h3 class="font-semibold text-orange-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3">A tree-based structure satisfying the heap property (parent is >= children for max-heap, or <= for min-heap). Efficiently finds the min/max element.</p>
+                <h3 class="font-semibold text-orange-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li>Finding the K-th largest/smallest element.</li>
+                    <li>Dijkstra's and Prim's algorithms.</li>
+                    <li>Task scheduling based on priority.</li>
+                </ul>
+                <h3 class="font-semibold text-orange-400 mb-2">Python Snippet: heapq (Min-Heap)</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-keyword">import</span> <span class="code-variable">heapq</span>
+
+<span class="code-variable">scores</span> = [<span class="code-number">23</span>, <span class="code-number">10</span>, <span class="code-number">54</span>, <span class="code-number">12</span>, <span class="code-number">88</span>]
+<span class="code-comment"># Python's heapq is a min-heap</span>
+<span class="code-variable">heapq</span>.<span class="code-function">heapify</span>(<span class="code-variable">scores</span>) <span class="code-comment"># O(n)</span>
+
+<span class="code-comment"># Add a new score</span>
+<span class="code-variable">heapq</span>.<span class="code-function">heappush</span>(<span class="code-variable">scores</span>, <span class="code-number">45</span>) <span class="code-comment"># O(log n)</span>
+
+<span class="code-comment"># Get the smallest score</span>
+<span class="code-variable">smallest</span> = <span class="code-variable">heapq</span>.<span class="code-function">heappop</span>(<span class="code-variable">scores</span>) <span class="code-comment"># 10, O(log n)</span>
+
+<span class="code-comment"># To simulate a max-heap, store negated values</span>
+</code></pre>
+            </div>
+            
+             <!-- 7. Graphs -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-yellow">
+                <h2 class="text-xl font-bold text-white mb-3">Graphs</h2>
+                <h3 class="font-semibold text-yellow-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3">A collection of nodes (vertices) connected by edges. Can be directed or undirected, weighted or unweighted. Traversed using BFS or DFS.</p>
+                <h3 class="font-semibold text-yellow-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li>Social networks, web page links.</li>
+                    <li>Mapping and navigation (Google Maps).</li>
+                    <li>Dependency resolution (e.g., package managers).</li>
+                </ul>
+                <h3 class="font-semibold text-yellow-400 mb-2">Python Snippet: Adjacency List</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-keyword">from</span> <span class="code-variable">collections</span> <span class="code-keyword">import</span> <span class="code-variable">defaultdict</span>
+
+<span class="code-comment"># Graph of user connections</span>
+<span class="code-variable">graph</span> = <span class="code-function">defaultdict</span>(<span class="code-variable">list</span>)
+<span class="code-variable">edges</span> = [(<span class="code-string">'A'</span>, <span class="code-string">'B'</span>), (<span class="code-string">'B'</span>, <span class="code-string">'C'</span>), (<span class="code-string">'A'</span>, <span class="code-string">'C'</span>)]
+
+<span class="code-keyword">for</span> <span class="code-variable">u</span>, <span class="code-variable">v</span> <span class="code-keyword">in</span> <span class="code-variable">edges</span>:
+    <span class="code-variable">graph</span>[<span class="code-variable">u</span>].<span class="code-function">append</span>(<span class="code-variable">v</span>)
+    <span class="code-variable">graph</span>[<span class="code-variable">v</span>].<span class="code-function">append</span>(<span class="code-variable">u</span>) <span class="code-comment"># For undirected graph</span>
+
+<span class="code-comment"># graph['A'] is ['B', 'C']</span>
+</code></pre>
+            </div>
+
+            <!-- 8. Sorting -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-pink">
+                <h2 class="text-xl font-bold text-white mb-3">Sorting</h2>
+                <h3 class="font-semibold text-pink-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3">Arranging elements in a specific order (e.g., ascending). Key algorithms: Merge Sort, Quick Sort, Heap Sort (all O(n log n) average).</p>
+                <h3 class="font-semibold text-pink-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li>Fundamental for data processing.</li>
+                    <li>Prerequisite for binary search.</li>
+                    <li>Identifying patterns or outliers in data.</li>
+                </ul>
+                <h3 class="font-semibold text-pink-400 mb-2">Python Snippet: Built-in Sort</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-variable">numbers</span> = [<span class="code-number">3</span>, <span class="code-number">1</span>, <span class="code-number">4</span>, <span class="code-number">1</span>, <span class="code-number">5</span>, <span class="code-number">9</span>, <span class="code-number">2</span>]
+
+<span class="code-comment"># In-place sort (Timsort, O(n log n))</span>
+<span class="code-variable">numbers</span>.<span class="code-function">sort</span>() 
+<span class="code-comment"># numbers is now [1, 1, 2, 3, 4, 5, 9]</span>
+
+<span class="code-comment"># Sort with a custom key (e.g., by length of string)</span>
+<span class="code-variable">words</span> = [<span class="code-string">'banana'</span>, <span class="code-string">'pie'</span>, <span class="code-string">'apple'</span>]
+<span class="code-variable">words</span>.<span class="code-function">sort</span>(<span class="code-variable">key</span>=<span class="code-function">len</span>)
+<span class="code-comment"># words is now ['pie', 'apple', 'banana']</span>
+</code></pre>
+            </div>
+
+            <!-- 9. Binary Search -->
+            <div class="bg-slate-800 rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-cyan-500/10 hover:-translate-y-1 card-border-teal">
+                <h2 class="text-xl font-bold text-white mb-3">Binary Search</h2>
+                <h3 class="font-semibold text-teal-400 mb-1">Key Concept</h3>
+                <p class="text-sm mb-3">A "divide and conquer" search algorithm with O(log n) time complexity. It repeatedly divides the search interval in half. Requires a sorted array.</p>
+                <h3 class="font-semibold text-teal-400 mb-1">Common Use Cases</h3>
+                <ul class="text-sm list-disc list-inside mb-3 space-y-1">
+                    <li>Efficiently searching in large, sorted datasets.</li>
+                    <li>Finding the position to insert an element.</li>
+                    <li>Used in problems that can be mapped to a search space.</li>
+                </ul>
+                <h3 class="font-semibold text-teal-400 mb-2">Python Snippet: Iterative Search</h3>
+                <pre class="bg-slate-900 rounded-md p-3 text-xs code-block overflow-x-auto"><code class="language-python"><span class="code-keyword">def</span> <span class="code-function">binary_search</span>(<span class="code-variable">arr</span>, <span class="code-variable">target</span>):
+    <span class="code-variable">low</span>, <span class="code-variable">high</span> = <span class="code-number">0</span>, <span class="code-function">len</span>(<span class="code-variable">arr</span>) - <span class="code-number">1</span>
+    <span class="code-keyword">while</span> <span class="code-variable">low</span> <= <span class="code-variable">high</span>:
+        <span class="code-variable">mid</span> = (<span class="code-variable">low</span> + <span class="code-variable">high</span>) // <span class="code-number">2</span>
+        <span class="code-keyword">if</span> <span class="code-variable">arr</span>[<span class="code-variable">mid</span>] == <span class="code-variable">target</span>:
+            <span class="code-keyword">return</span> <span class="code-variable">mid</span>
+        <span class="code-keyword">elif</span> <span class="code-variable">arr</span>[<span class="code-variable">mid</span>] < <span class="code-variable">target</span>:
+            <span class="code-variable">low</span> = <span class="code-variable">mid</span> + <span class="code-number">1</span>
+        <span class="code-keyword">else</span>:
+            <span class="code-variable">high</span> = <span class="code-variable">mid</span> - <span class="code-number">1</span>
+    <span class="code-keyword">return</span> -<span class="code-number">1</span> <span class="code-comment"># Not found</span>
+</code></pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
